@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Opening Trainer — Belajar Pembukaan Catur</title>
+    <meta
+      name="description"
+      content="Latih pembukaan catur: Ruy Lopez, Italian Game, dan Queen's Gambit dengan papan interaktif dan penjelasan bertingkat."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <div class="brand">
+          <span class="brand-mark">♟</span>
+          <div>
+            <h1>Chess Opening Trainer</h1>
+            <p class="tagline">Belajar pembukaan catur langkah demi langkah</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap layout">
+      <!-- Kolom kiri: input & kontrol -->
+      <section class="panel controls-panel" aria-label="Pengaturan">
+        <h2 class="panel-title">1 · Pilih Pembukaan</h2>
+        <label class="field">
+          <span class="field-label">Pembukaan</span>
+          <select id="openingSelect" class="select"></select>
+        </label>
+
+        <div class="opening-meta">
+          <div class="meta-top">
+            <h3 id="openingName">—</h3>
+            <span id="openingEco" class="eco-badge">ECO</span>
+          </div>
+          <p id="openingShort" class="muted">—</p>
+        </div>
+
+        <h2 class="panel-title">2 · Tingkat Pemahaman</h2>
+        <div class="level-group" role="group" aria-label="Tingkat pemahaman">
+          <button type="button" class="level-btn" data-level="beginner">
+            <strong>Pemula</strong><small>Penjelasan rinci</small>
+          </button>
+          <button type="button" class="level-btn" data-level="intermediate">
+            <strong>Menengah</strong><small>Ringkas</small>
+          </button>
+          <button type="button" class="level-btn" data-level="advanced">
+            <strong>Jago</strong><small>Gerakan saja</small>
+          </button>
+        </div>
+
+        <h2 class="panel-title">Daftar Langkah</h2>
+        <div id="movesList" class="moves-list" aria-label="Urutan langkah"></div>
+      </section>
+
+      <!-- Kolom tengah: papan catur -->
+      <section class="panel board-panel" aria-label="Papan catur">
+        <div class="board-wrap">
+          <div id="board" class="chessboard"></div>
+        </div>
+        <p id="stepLabel" class="step-label">Posisi awal</p>
+        <div class="board-controls">
+          <button type="button" id="btnStart" class="ctrl" title="Ke awal">⏮</button>
+          <button type="button" id="btnPrev" class="ctrl" title="Mundur (←)">◀</button>
+          <button type="button" id="btnAuto" class="ctrl ctrl-wide">▶ Putar otomatis</button>
+          <button type="button" id="btnNext" class="ctrl" title="Maju (→)">▶</button>
+          <button type="button" id="btnEnd" class="ctrl" title="Ke akhir">⏭</button>
+          <button type="button" id="btnFlip" class="ctrl" title="Putar papan">⟲</button>
+        </div>
+      </section>
+
+      <!-- Kolom kanan: output penjelasan & analisis -->
+      <section class="panel output-panel" aria-label="Penjelasan dan analisis">
+        <h2 class="panel-title">Penjelasan Langkah</h2>
+        <div id="explanationBox" class="explanation"></div>
+
+        <h2 class="panel-title">Analisis Pembukaan</h2>
+        <p id="analysisBox" class="analysis muted"></p>
+        <h3 class="subhead">Rencana khas</h3>
+        <ul id="plansList" class="plans"></ul>
+      </section>
+    </main>
+
+    <!-- Baris bawah: tantangan & asisten -->
+    <section class="wrap bottom-grid">
+      <div class="panel challenge-panel" aria-label="Soal tantangan">
+        <h2 class="panel-title">3 · Soal Tantangan</h2>
+        <p class="muted">Uji pemahamanmu tentang pembukaan ini.</p>
+        <div id="challengeArea" class="challenge-area"></div>
+      </div>
+
+      <div class="panel ai-panel" aria-label="Asisten">
+        <h2 class="panel-title">Tanya Asisten</h2>
+        <p class="muted">
+          Ajukan pertanyaan bebas. Jawaban berupa contoh template (bukan AI
+          sungguhan).
+        </p>
+        <div class="ai-input-row">
+          <input
+            type="text"
+            id="aiInput"
+            class="text-input"
+            placeholder="Mis. Kenapa gajah ke b5?"
+          />
+          <button type="button" id="aiAsk" class="btn-primary">Tanya</button>
+        </div>
+        <div id="aiAnswer" class="ai-answer">
+          <p class="ai-placeholder">
+            Tanyakan apa saja tentang pembukaan ini. Jawaban berupa contoh
+            template.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          Chess Opening Trainer · dibuat untuk belajar pembukaan catur bagi
+          pemula.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/openings.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
